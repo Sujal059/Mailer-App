@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="./emailicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailer App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container1">
+            <div class="subcontainer1">
+                <h1 class="title">Send Your Mail</h1>
+                <p class="description">
+                    Send Email easily using Node Mailer App. Just fill the form and click "Send Email".
+                </p>
+            </div>
+            <div class="subcontainer2">
+                <form 
+                    action="/send-email"
+                    method="post"
+                    class="email-form"
+                    id="email-form"
+                >
+                    <h2>Send Email</h2>
+                    <input type="email" name="email" id="email" placeholder="Enter recipient email" required />
+                    <input type="text" name="subject" id="email" placeholder="Enter subject of email" required />
+                    <textarea name="message" id="message" rows="5" placeholder="Enter your message" required></textarea>
+                    <button type="submit" id="submit-button">Send Email</button>
+                    <% if(typeof status !== 'undefined' && status && typeof message !== 'undefined' && message){ %>
+                        <p class="status-message"
+                        <% if(status == 'Success'){%>
+                        style = "color : green"
+                        <%} else{ %>
+                        style = "color : red"
+                        <% } %>
+                        ><%= status %> <%= message %></p>
+                    <% } %>
+                
+                </form>
+                
+                
+            </div>
+        </div>
+        <div class="container2">
+            <p class="copyright">&copy; 2023 Node Mailer App.</p>
+        </div>
+    </div>
+</body>
+</html>
